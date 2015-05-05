@@ -2,7 +2,7 @@
 from zero to one with spring-boot
 
 
-###road map
+###roadmap
 <ul>
 	<li>权限		shiro</li>
 	<li>UI			Bootstrap</li>
@@ -22,4 +22,6 @@ from zero to one with spring-boot
 	<li>系统管理</li>
 </ul>
 
-
+###running the zo-spring-boot
+mvn spring-boot:run or import to eclipse and start with application(Application.java)
+open a web browser to [localhost:8080](http://localhost:8080)
