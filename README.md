@@ -23,5 +23,5 @@ from zero to one with spring-boot
 </ul>
 
 ###running the zo-spring-boot
-mvn spring-boot:run or import to eclipse and start with application(Application.java)<br/>
+'mvn spring-boot:run' or import to eclipse and start with application'(Application.java)'<br/>
 open a web browser to [localhost:8080](http://localhost:8080)
