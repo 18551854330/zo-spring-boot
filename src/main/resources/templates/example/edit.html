@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>example edit/add : Spring Boot!</title>
+    <title>example edit : Spring Boot!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.2.0/css/bootstrap.min.css"
           th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}"
@@ -12,23 +12,24 @@
 </head>
 <body>
 	 
-	<form action="/example/update" method="post">
-		<fieldset>
-			<label>Id</label>
-			<input th:value="${example.id}" name="id"/>
-		</fieldset>
-		<fieldset>
+	<h1>example demo</h1>
+	<hr/>
+	<form th:action="@{/example/save}"  method="post">
+		<div class="form-group">
+			<label>Id：<span th:text="${example.id}"></span></label>
+			<input name="id" type="hidden" th:value="${example.id}" />
+		</div> 
+		<div class="form-group">
 			<label>Name</label>
-			<input th:value="${example.name}" name="name"/>
-		</fieldset>
-		<fieldset>
+			<input name="name" class="form-control" th:value="${example.name}" />
+		</div>
+		<div class="form-group">
 			<label>Description</label>
-			<input th:value="${example.desc}" name="desc"/>
-		</fieldset>
+			<textarea name="desc" class="form-control" rows="3" th:text="${example.desc}"></textarea>
+		</div>
 		
-		<fieldset>
-			<input type="submit" value="确认修改"/>
-		</fieldset>
+		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="button" class="btn btn-default" onclick="javascript:history.go(-1);">Back</button>
 	</form>
 	
 </body>

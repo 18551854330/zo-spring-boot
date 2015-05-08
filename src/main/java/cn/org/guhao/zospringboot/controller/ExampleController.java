@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import cn.org.guhao.zospringboot.domain.Example;
 import cn.org.guhao.zospringboot.repository.ExampleRepository;
@@ -25,7 +26,7 @@ public class ExampleController {
         return "example/list";
     }
 	
-	@RequestMapping(name="example/edit", method=RequestMethod.GET)
+	@RequestMapping(value="example/edit", method=RequestMethod.GET)
 	String edit(Model model, HttpServletRequest request){
 		String id = request.getParameter("id");
 		Example example = null;
@@ -41,14 +42,24 @@ public class ExampleController {
 		return returnString;
 	}
 	
-	@RequestMapping(name="example/update",method=RequestMethod.POST)
-	String update(Model model, @ModelAttribute("example") Example example){
-		if(repo.exists(example.getId())){
+	@RequestMapping(value="example/save",method=RequestMethod.POST)
+	String save(Model model, @ModelAttribute("example") Example example){
+		// update
+		if(example.getId()!=null && repo.exists(example.getId())){
 			repo.save(example);
 		}else{
+		// create
 			repo.save(example);
 		}
-		return "example/list";
+		return "redirect:/example/list";
+	}
+	
+	@RequestMapping(value="example/delete")
+	String remove(@RequestParam("id") Long id){
+		if(repo.exists(id)){
+			repo.delete(id);
+		}
+		return "redirect:/example/list";
 	}
 	
 }

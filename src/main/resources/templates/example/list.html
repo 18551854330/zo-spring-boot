@@ -12,13 +12,18 @@
 </head>
 <body>
 	
-	<table>
+	<h1>example demo</h1>
+	<hr/>
+	<a class="btn btn-default" th:href="@{'edit'}">add</a>
+	<hr/>
+	<table class="table table-striped table-hover">
 	    <thead>
 		    <tr>
 		        <th>ID</th>
 		        <th>Name</th>
 		        <th>Description</th>
 		        <th>Edit</th>
+		        <th>Delete</th>
 		    </tr>
 	    </thead>
 	    <tbody>
@@ -26,7 +31,8 @@
 		        <td th:text="${e.id}">id</td>
 		        <td th:text="${e.name}">name</td>
 		        <td th:text="${e.desc}">description</td>
-		        <td><a href="example/edit" th:href="@{'edit?id='+${e.id}}">修改</a></td>
+		        <td><a href="/example/edit" th:href="@{'edit?id='+${e.id}}">edit</a></td>
+		        <td><a href="/example/delete" th:href="@{'delete?id='+${e.id}}">delete</a></td>
 		    </tr>
 	    </tbody>
 	</table>
