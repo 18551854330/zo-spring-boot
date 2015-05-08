@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>example list : Spring Boot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.2.0/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.1/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+</head>
+<body>
+	
+	<table>
+	    <thead>
+		    <tr>
+		        <th>ID</th>
+		        <th>Name</th>
+		        <th>Description</th>
+		        <th>Edit</th>
+		    </tr>
+	    </thead>
+	    <tbody>
+		    <tr th:each="e : ${examples}">
+		        <td th:text="${e.id}">id</td>
+		        <td th:text="${e.name}">name</td>
+		        <td th:text="${e.desc}">description</td>
+		        <td><a href="example/edit" th:href="@{'edit?id='+${e.id}}">修改</a></td>
+		    </tr>
+	    </tbody>
+	</table>
+
+</body>
+</html>

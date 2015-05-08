@@ -12,7 +12,7 @@ from zero to one with spring-boot
 	<li>Template 	Thymeleaf</li>
 </ul>
 
-###故事（场景）
+##故事（场景）
 以完成一个微型的电商系统为初期目标
 <ul>
 	<li>会员管理</li>
@@ -21,6 +21,8 @@ from zero to one with spring-boot
 	<li>前端商城</li>
 	<li>系统管理</li>
 </ul>
+
+##Getting Started
 
 ###running the zo-spring-boot
 `mvn spring-boot:run` or import to eclipse and start with application`(Application.java)`<br/>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>example edit/add : Spring Boot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.2.0/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.1/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+</head>
+<body>
+	 
+	<form action="/example/update" method="post">
+		<fieldset>
+			<label>Id</label>
+			<input th:value="${example.id}" name="id"/>
+		</fieldset>
+		<fieldset>
+			<label>Name</label>
+			<input th:value="${example.name}" name="name"/>
+		</fieldset>
+		<fieldset>
+			<label>Description</label>
+			<input th:value="${example.desc}" name="desc"/>
+		</fieldset>
+		
+		<fieldset>
+			<input type="submit" value="确认修改"/>
+		</fieldset>
+	</form>
+	
+</body>
+</html>
