@@ -14,19 +14,20 @@ import cn.org.guhao.zospringboot.domain.Example;
 import cn.org.guhao.zospringboot.repository.ExampleRepository;
 
 @Controller
+@RequestMapping("/example")
 public class ExampleController {
 
 	@Autowired
 	private ExampleRepository repo;
 
-	@RequestMapping("example/list")
+	@RequestMapping("/list")
     String list(Model model) {
 		Iterable<Example> examples = repo.findAll();
 		model.addAttribute("examples", examples);
         return "example/list";
     }
 	
-	@RequestMapping(value="example/edit", method=RequestMethod.GET)
+	@RequestMapping(value="/edit", method=RequestMethod.GET)
 	String edit(Model model, HttpServletRequest request){
 		String id = request.getParameter("id");
 		Example example = null;
@@ -42,7 +43,7 @@ public class ExampleController {
 		return returnString;
 	}
 	
-	@RequestMapping(value="example/save",method=RequestMethod.POST)
+	@RequestMapping(value="/save",method=RequestMethod.POST)
 	String save(Model model, @ModelAttribute("example") Example example){
 		// update
 		if(example.getId()!=null && repo.exists(example.getId())){
