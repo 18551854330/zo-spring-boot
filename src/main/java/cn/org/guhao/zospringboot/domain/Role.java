@@ -1,6 +1,8 @@
 package cn.org.guhao.zospringboot.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -36,7 +38,7 @@ public class Role implements Serializable {
 	@JoinTable(name="Role_Permission", 
 			joinColumns = {@JoinColumn(name="Role_Id",referencedColumnName ="id")},
 			inverseJoinColumns = {@JoinColumn(name="Permission_Id",referencedColumnName="id")})    
-    private Set<Permission> permissions;
+    private List<Permission> permissions;
     
 	@ManyToMany
     private Set<User> users;
@@ -66,11 +68,11 @@ public class Role implements Serializable {
 		this.roleName = roleName;
 	}
 
-	public Set<Permission> getPermissions() {
+	public List<Permission> getPermissions() {
 		return permissions;
 	}
 
-	public void setPermissions(Set<Permission> permissions) {
+	public void setPermissions(List<Permission> permissions) {
 		this.permissions = permissions;
 	}
 
@@ -82,6 +84,17 @@ public class Role implements Serializable {
 		this.users = users;
 	}
 
-	
+	/**
+	 * 获取Shiro需要的permission string格式
+	 * @return
+	 */
+	public List<String> getStringPermissions(){
+		if(permissions==null || permissions.size()<=0) return null;
+		List<String> permissionStrs = new ArrayList<String>();
+		for(Permission permission:permissions){
+			permissionStrs.add(String.valueOf(permission.getId()));
+		}
+		return permissionStrs;
+	}
 	
 }
