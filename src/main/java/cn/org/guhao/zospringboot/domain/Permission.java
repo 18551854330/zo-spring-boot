@@ -3,8 +3,10 @@ package cn.org.guhao.zospringboot.domain;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +29,7 @@ public class Permission implements Serializable {
     @Column(nullable = false)
     private String permissionName;
 
-	@ManyToMany(mappedBy="permissions")    
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch=FetchType.LAZY, mappedBy="permissions")    
     private Set<Role> roles;
     
     protected Permission() {

@@ -35,10 +35,10 @@ public class User implements Serializable {
     private String password;
 
 	// 建立多对多关系表
-	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
-	@JoinTable(name="User_Role", 
-			joinColumns = {@JoinColumn(name="user_Id",referencedColumnName ="id")},
-			inverseJoinColumns = {@JoinColumn(name="role_Id",referencedColumnName="id")})    
+	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE}, fetch=FetchType.LAZY)
+	@JoinTable(name="user_role", 
+			joinColumns = {@JoinColumn(name="user_id",referencedColumnName ="id")},
+			inverseJoinColumns = {@JoinColumn(name="role_id",referencedColumnName="id")})    
     private Set<Role> roles;
 	
 	protected User() {

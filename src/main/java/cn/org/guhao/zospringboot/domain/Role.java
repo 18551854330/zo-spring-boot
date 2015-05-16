@@ -34,13 +34,13 @@ public class Role implements Serializable {
     private String roleName;
 
 	// 建立多对多关系表
-	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
-	@JoinTable(name="Role_Permission", 
-			joinColumns = {@JoinColumn(name="role_Id",referencedColumnName ="id")},
-			inverseJoinColumns = {@JoinColumn(name="permission_Id",referencedColumnName="id")})    
+	@ManyToMany(cascade={CascadeType.PERSIST, CascadeType.MERGE}, fetch=FetchType.LAZY)
+	@JoinTable(name="role_permission", 
+			joinColumns = {@JoinColumn(name="role_id",referencedColumnName ="id")},
+			inverseJoinColumns = {@JoinColumn(name="permission_id",referencedColumnName="id")})    
     private List<Permission> permissions;
     
-	@ManyToMany(mappedBy="roles")
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch=FetchType.LAZY, mappedBy="roles")
     private Set<User> users;
     
     protected Role() {
