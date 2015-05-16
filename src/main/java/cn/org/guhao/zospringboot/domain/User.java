@@ -37,9 +37,13 @@ public class User implements Serializable {
 	// 建立多对多关系表
 	@ManyToMany(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
 	@JoinTable(name="User_Role", 
-			joinColumns = {@JoinColumn(name="User_Id",referencedColumnName ="id")},
-			inverseJoinColumns = {@JoinColumn(name="Role_Id",referencedColumnName="id")})    
+			joinColumns = {@JoinColumn(name="user_Id",referencedColumnName ="id")},
+			inverseJoinColumns = {@JoinColumn(name="role_Id",referencedColumnName="id")})    
     private Set<Role> roles;
+	
+	protected User() {
+		
+	}
     
     public User(Integer id,String username) {
     	this.id = id;

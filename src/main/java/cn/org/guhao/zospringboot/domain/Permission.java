@@ -27,7 +27,7 @@ public class Permission implements Serializable {
     @Column(nullable = false)
     private String permissionName;
 
-	@ManyToMany    
+	@ManyToMany(mappedBy="permissions")    
     private Set<Role> roles;
     
     protected Permission() {
