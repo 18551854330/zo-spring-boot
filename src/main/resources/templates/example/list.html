@@ -31,8 +31,8 @@
 		        <td th:text="${e.id}">id</td>
 		        <td th:text="${e.name}">name</td>
 		        <td th:text="${e.desc}">description</td>
-		        <td><a href="/example/edit" th:href="@{'edit?id='+${e.id}}">edit</a></td>
-		        <td><a href="/example/delete" th:href="@{'delete?id='+${e.id}}">delete</a></td>
+		        <td><a href="/example/edit" th:href="@{'edit?id='+${e.id}}">Edit</a></td>
+		        <td><a href="/example/delete" th:href="@{'delete?id='+${e.id}}">Delete</a></td>
 		    </tr>
 	    </tbody>
 	</table>

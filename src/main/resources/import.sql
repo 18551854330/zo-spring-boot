@@ -1,0 +1,1 @@
+insert into example(id,name,desc) values (1,'example1','desc1');
