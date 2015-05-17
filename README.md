@@ -4,12 +4,12 @@ from zero to one with Spring Boot
 
 ###roadmap
 <ul>
-	<li>权限		shiro</li>
-	<li>UI			Bootstrap</li>
-	<li>数据库		hsql</li>
-	<li>持久化		Spring Data JPA</li>
-	<li>MVC			Spring MVC</li>
-	<li>Template 	Thymeleaf</li>
+	<li>权限:Shiro</li>
+	<li>UI:SB Admin 2(Based of Bootstrap 3)</li>
+	<li>数据库:hsqldb</li>
+	<li>持久化:Spring Data JPA</li>
+	<li>MVC:Spring MVC</li>
+	<li>Template Engine:Thymeleaf</li>
 </ul>
 
 ##故事（场景）
