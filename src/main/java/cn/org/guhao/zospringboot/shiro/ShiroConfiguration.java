@@ -1,5 +1,8 @@
 package cn.org.guhao.zospringboot.shiro;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -13,7 +16,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ShiroConfiguration {
 
-	@Bean(name = "ShiroDatabaseRealm")
+	private static Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
+	
+	@Bean(name = "shiroDatabaseRealm")
 	public ShiroDatabaseRealm getShiroRealm() {
 		return new ShiroDatabaseRealm();
 	}
@@ -56,12 +61,13 @@ public class ShiroConfiguration {
 	public ShiroFilterFactoryBean getShiroFilterFactoryBean() {
 		ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 		shiroFilterFactoryBean.setSecurityManager(getDefaultWebSecurityManager());
-		shiroFilterFactoryBean.setLoginUrl("/checkLogin");
+		shiroFilterFactoryBean.setLoginUrl("/login");
 		shiroFilterFactoryBean.setSuccessUrl("/");
-//		filterChainDefinitionMap.put("/sa/**", "authc");
-//		filterChainDefinitionMap.put("/**", "anon");
-//		shiroFilterFactoryBean
-//				.setFilterChainDefinitionMap(filterChainDefinitionMap);
+		shiroFilterFactoryBean.setUnauthorizedUrl("/403");
+		filterChainDefinitionMap.put("/example/**", "authc");
+		filterChainDefinitionMap.put("/login", "authc");
+		filterChainDefinitionMap.put("/**", "anon");
+		shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
 		return shiroFilterFactoryBean;
 	}
 

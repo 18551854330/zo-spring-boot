@@ -3,7 +3,9 @@ package cn.org.guhao.zospringboot.shiro;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -73,12 +75,17 @@ public class ShiroDatabaseRealm extends AuthorizingRealm {
 		String username = usernamePasswordToke.getUsername();
 		String password = String.valueOf(usernamePasswordToke.getPassword());
 		User loginUser = userService.findByUsername(username);
-		if(loginUser != null && password.equals(loginUser.getPassword())){
-			return new SimpleAuthenticationInfo(loginUser.getUsername(), 
-					loginUser.getPassword(),
-					ByteSource.Util.bytes(loginUser.getUsername()), getName());
+		
+		if(loginUser==null){
+			throw new UnknownAccountException("用户不存在");
 		}
-		return null;
+		if(!password.equals(loginUser.getPassword())){
+			throw new IncorrectCredentialsException("密码不正确");
+		}
+		
+		return new SimpleAuthenticationInfo(loginUser.getUsername(), 
+				loginUser.getPassword(),
+				ByteSource.Util.bytes(loginUser.getUsername()), getName());
 	}
 
 }

@@ -21,7 +21,7 @@ public class ExampleController {
 	private ExampleRepository repo;
 
 	@RequestMapping("/list")
-    String list(Model model) {
+    String list(Model model, HttpServletRequest request) {
 		Iterable<Example> examples = repo.findAll();
 		model.addAttribute("examples", examples);
         return "example/list";
