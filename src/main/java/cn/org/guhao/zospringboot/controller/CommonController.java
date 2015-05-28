@@ -59,7 +59,7 @@ public class CommonController {
         }
         return "/example/list";
         */
-		return "/";
+		return "login";
 	}
 	
 	@RequestMapping("/403")  

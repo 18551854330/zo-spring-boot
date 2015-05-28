@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:tiles="http://www.thymeleaf.org" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Spring Boot and Thymeleaf Tiles</title>
+</head>
+<body>
+    <div class="header">
+        <div tiles:replace="header"></div>
+    </div>
+    <div class="content">
+        <div tiles:replace="content"></div>
+    </div>
+    <div class="footer">
+        <div tiles:replace="footer"></div>
+    </div>
+</body>
+</html>
