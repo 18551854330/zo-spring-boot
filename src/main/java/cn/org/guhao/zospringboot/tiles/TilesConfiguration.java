@@ -9,9 +9,9 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 /**
- * ThymeleafTiles設定.
- * @author shimizu.kenji
- *
+ * @author guhao
+ * refer to the following website url:
+ * http://spring.io/blog/2012/10/30/spring-mvc-from-jsp-and-tiles-to-thymeleaf/
  */
 @Configuration
 public class TilesConfiguration {
