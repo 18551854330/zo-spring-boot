@@ -1,16 +1,16 @@
 # zo-spring-boot
-from zero to one with Spring Boot
+From zero to one with Spring Boot
 
 
 ###roadmap
 <ul>
-	<li>权限:Shiro(√)</li>
-	<li>UI:SB Admin 2(Based of Bootstrap 3)(TODO)</li>
-	<li>数据库:hsqldb(√)</li>
-	<li>持久化:Spring Data JPA(√)</li>
-	<li>MVC:Spring MVC(√)</li>
-	<li>Template Engine:Thymeleaf(√)</li>
-	<li>Layout:Tiles(TODO)</li>
+	<li>权限:Shiro (Done)</li>
+	<li>UI:SB Admin 2(Based of Bootstrap 3) (TODO)</li>
+	<li>数据库:hsqldb (Done)</li>
+	<li>持久化:Spring Data JPA (Done)</li>
+	<li>MVC:Spring MVC (Done)</li>
+	<li>Template Engine:Thymeleaf (Done)</li>
+	<li>Layout:Tiles (TODO)</li>
 </ul>
 
 ##故事（场景）
@@ -26,5 +26,5 @@ from zero to one with Spring Boot
 ##Getting Started
 
 ###running the zo-spring-boot
-`mvn spring-boot:run` or import to eclipse and start with application`(Application.java)`<br/>
+`mvn spring-boot:run` or import to eclipse and start with application`(ZoApplication.java)`<br/>
 open a web browser to [localhost:8080](http://localhost:8080)
