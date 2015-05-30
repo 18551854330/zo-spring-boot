@@ -7,14 +7,18 @@
     <title>Spring Boot and Thymeleaf Tiles</title>
 </head>
 <body>
+
+	<div>
+		<h1>Tiles 3 support</h1>
+		<p>The Apache Tiles integration module currently only supports Tiles 2 integration. Tiles 3, although seems to be very alike Tiles 2, has a different architecture and therefore a separate module will be created in the future.</p>
+	</div>
+
     <div class="header">
-        <div tiles:replace="header"></div>
     </div>
     <div class="content">
-        <div tiles:replace="content"></div>
+        <div tiles:replace="body"></div>
     </div>
     <div class="footer">
-        <div tiles:replace="footer"></div>
     </div>
 </body>
 </html>

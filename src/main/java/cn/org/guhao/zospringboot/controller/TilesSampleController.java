@@ -9,7 +9,7 @@ public class TilesSampleController {
 
 	@RequestMapping("/sample")
     String list() {
-        return "thymeleaf-tiles-sample";
+        return "sample";
     }
 	
 }
